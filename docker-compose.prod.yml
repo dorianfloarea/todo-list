@@ -1,0 +1,7 @@
+services:
+  todo-list-api-prod:
+    extends:
+      file: docker-compose.yml
+      service: todo-list-api
+    build:
+      target: prod

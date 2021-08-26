@@ -1,0 +1,13 @@
+services:
+  todo-list-api:
+    container_name: todo-lost-api
+    hostname: localhost
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: dev
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+  redis:
+    container_name: redis
+    image: "redis"

@@ -1,0 +1,7 @@
+services:
+  todo-list-api-test:
+    extends:
+      file: docker-compose.yml
+      service: todo-list-api
+    build:
+      target: test
