@@ -1,8 +1,11 @@
 const express = require('express');
 const logger = require('morgan');
 const app = express();
+const config = require('./config');
 
-app.use(logger('combined'));
+if (config.app.env !== 'test') {
+  app.use(logger('combined'));
+}
 app.use(express.json());
 
 // routing
