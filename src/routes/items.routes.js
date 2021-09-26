@@ -4,11 +4,14 @@ module.exports = ({itemsController}) => {
   const router = express.Router();
   /* eslint-enable */
 
-  router.post('/', itemsController.createItem);
-  router.get('/', itemsController.getAllItems);
-  router.get('/:id', itemsController.getItem);
-  router.put('/:id', itemsController.updateItem);
-  router.delete('/:id', itemsController.deleteItem);
+  router.route('/')
+      .post(itemsController.createItem)
+      .get(itemsController.getAllItems);
+
+  router.route('/:id')
+      .get(itemsController.getItem)
+      .put(itemsController.updateItem)
+      .delete(itemsController.deleteItem);
 
   return router;
 };
